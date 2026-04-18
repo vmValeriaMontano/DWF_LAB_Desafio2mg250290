@@ -21,7 +21,7 @@ public class Materia {
     @JoinColumn(name = "id_profesor")
     private Profesor profesor;
 
-    //-----
+    //-----Se borran las inscripciones
     @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AlumnoMateria> inscripciones;
 

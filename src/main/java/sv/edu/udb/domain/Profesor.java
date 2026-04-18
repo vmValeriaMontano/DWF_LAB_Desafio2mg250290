@@ -16,7 +16,8 @@ public class Profesor {
     @Column (name = "nombre", nullable = false)
     private String nombre;
 
-    //-----
+    //-----Se borra sus materias
+    //-----Se borran inscripciones de esas materias
     @OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Materia> materias;
 

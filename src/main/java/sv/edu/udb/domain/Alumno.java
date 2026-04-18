@@ -19,7 +19,7 @@ public class Alumno {
     @Column(name = "apellido", nullable = false)
     private String apellido;
 
-    //-----
+    //-----Se borran sus inscripciones
     @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AlumnoMateria> inscripciones;
 
