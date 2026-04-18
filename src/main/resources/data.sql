@@ -26,3 +26,4 @@ INSERT INTO alumno_materia (id_alumno, id_materia) VALUES (1,2);
 INSERT INTO alumno_materia (id_alumno, id_materia) VALUES (2,3);
 INSERT INTO alumno_materia (id_alumno, id_materia) VALUES (3,4);
 INSERT INTO alumno_materia (id_alumno, id_materia) VALUES (4,5);
+INSERT INTO alumno_materia (id_alumno, id_materia) VALUES (5,1);
