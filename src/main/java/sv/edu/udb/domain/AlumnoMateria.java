@@ -16,13 +16,13 @@ public class AlumnoMateria {
     @ManyToOne
     @MapsId("idAlumno")
     @JoinColumn(name = "id_alumno")
-    @OnDelete(action = OnDeleteAction.CASCADE) //
+    @OnDelete(action = OnDeleteAction.CASCADE) //si elimina alumno, se borra su historial de inscripciones
     private Alumno alumno;
 
     @ManyToOne
     @MapsId("idMateria")
     @JoinColumn(name = "id_materia")
-    @OnDelete(action = OnDeleteAction.CASCADE) //
+    @OnDelete(action = OnDeleteAction.CASCADE) //si materia desaparece, se eliminan inscripciones asociadas.
     private Materia materia;
 
 
