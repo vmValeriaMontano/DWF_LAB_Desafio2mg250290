@@ -26,11 +26,19 @@ public class ProfesorController {
 
     @PutMapping("/{id}")
     public Profesor actualizar(@PathVariable Long id, @RequestBody Profesor profesor){
+        profesor.setId(id);
         return repo.save(profesor);
     }
 
+    //-----
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id){
+    public String eliminar(@PathVariable Long id){
+
+        if (!repo.existsById(id)){
+            return "Proffesor no encontrado";
+        }
+
         repo.deleteById(id);
+        return "Profesor eliminado correctamente";
     }
 }

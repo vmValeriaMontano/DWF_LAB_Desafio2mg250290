@@ -30,8 +30,14 @@ public class AlumnoController {
         return repo.save(alumno);
     }
 
+    //----
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id){
+    public String eliminar(@PathVariable Long id){
+        if(!repo.existsById(id)){
+            return "Alumno no encontrado";
+        }
+
         repo.deleteById(id);
+        return "Alumno eliminado correctamente";
     }
 }

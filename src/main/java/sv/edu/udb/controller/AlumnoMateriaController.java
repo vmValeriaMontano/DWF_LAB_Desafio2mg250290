@@ -38,8 +38,16 @@ public class AlumnoMateriaController {
         return repo.save(new AlumnoMateria(alumno, materia));
     }
 
+    //-----
     @DeleteMapping
-    public void eliminar(@RequestParam Long alumnoId, @RequestParam Long materiaId){
-        repo.deleteById(new sv.edu.udb.domain.AlumnoMateriaId(alumnoId, materiaId));
+    public String eliminar(@RequestParam Long alumnoId, @RequestParam Long materiaId){
+        var id = new sv.edu.udb.domain.AlumnoMateriaId(alumnoId, materiaId);
+
+        if (!repo.existsById(id)){
+            return "Inscripcion no encontrada";
+        }
+
+        repo.deleteById(id);
+        return "Incripcion eliminada correctamente";
     }
 }

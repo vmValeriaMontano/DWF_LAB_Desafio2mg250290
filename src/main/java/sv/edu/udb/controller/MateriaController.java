@@ -31,11 +31,17 @@ public class MateriaController {
 
     @PutMapping("/{id}")
     public Materia actualizar(@PathVariable Long id, @RequestBody Materia materia){
+        materia.setId(id);
         return materiaRepo.save(materia);
     }
 
+    //-----
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id){
+    public String eliminar(@PathVariable Long id){
+        if (!materiaRepo.existsById(id)){
+            return "Materia no encontrada";
+        }
         materiaRepo.deleteById(id);
+        return "Materia eliminada correctamente";
     }
 }

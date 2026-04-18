@@ -41,4 +41,8 @@ public class Profesor {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
