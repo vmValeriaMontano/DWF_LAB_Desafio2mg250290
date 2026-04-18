@@ -48,4 +48,8 @@ public class Alumno {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
