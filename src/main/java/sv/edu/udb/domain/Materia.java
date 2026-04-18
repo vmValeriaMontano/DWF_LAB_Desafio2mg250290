@@ -3,6 +3,8 @@ package sv.edu.udb.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "materia")
 public class Materia {
@@ -18,6 +20,10 @@ public class Materia {
     @ManyToOne
     @JoinColumn(name = "id_profesor")
     private Profesor profesor;
+
+    //-----
+    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AlumnoMateria> inscripciones;
 
     public Materia() {
     }

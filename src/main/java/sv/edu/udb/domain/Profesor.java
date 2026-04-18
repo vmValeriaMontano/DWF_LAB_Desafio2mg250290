@@ -2,6 +2,8 @@ package sv.edu.udb.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "profesor")
 public class Profesor {
@@ -13,6 +15,10 @@ public class Profesor {
 
     @Column (name = "nombre", nullable = false)
     private String nombre;
+
+    //-----
+    @OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Materia> materias;
 
     //Constructor vacío
     public Profesor() {

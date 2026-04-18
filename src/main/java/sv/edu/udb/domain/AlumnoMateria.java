@@ -1,6 +1,8 @@
 package sv.edu.udb.domain;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "alumno_materia")
@@ -14,12 +16,15 @@ public class AlumnoMateria {
     @ManyToOne
     @MapsId("idAlumno")
     @JoinColumn(name = "id_alumno")
+    @OnDelete(action = OnDeleteAction.CASCADE) //
     private Alumno alumno;
 
     @ManyToOne
     @MapsId("idMateria")
     @JoinColumn(name = "id_materia")
+    @OnDelete(action = OnDeleteAction.CASCADE) //
     private Materia materia;
+
 
     public AlumnoMateria() {
     }
