@@ -8,9 +8,11 @@ import sv.edu.udb.repository.ProfesorRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/profesores")
+@RequestMapping("/api/profesores")//endpoit principal
 public class ProfesorController {
 
+    //Inyección de dependencia del
+    // repositorio para acceder a operaciones CRUD
     @Autowired
     private ProfesorRepository repo;
 
@@ -30,12 +32,13 @@ public class ProfesorController {
         return repo.save(profesor);
     }
 
-    //-----
+    //-----Metodo devuelve un mensaje de confirmacion
+    //----al procesar la eliminacion
     @DeleteMapping("/{id}")
     public String eliminar(@PathVariable Long id){
 
         if (!repo.existsById(id)){
-            return "Proffesor no encontrado";
+            return "Profesor no encontrado";
         }
 
         repo.deleteById(id);

@@ -12,9 +12,11 @@ import sv.edu.udb.repository.MateriaRepository;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/inscripciones")
+@RequestMapping("/api/inscripciones")//endpoit principal
 public class AlumnoMateriaController {
 
+    //Inyección de dependencias del
+    // repositorio para acceder a operaciones CRUD
     @Autowired
     private AlumnoMateriaRepository repo;
 
@@ -38,7 +40,8 @@ public class AlumnoMateriaController {
         return repo.save(new AlumnoMateria(alumno, materia));
     }
 
-    //-----
+    //-----Metodo devuelve un mensaje de confirmacion
+    //----al procesar la eliminacion
     @DeleteMapping
     public String eliminar(@RequestParam Long alumnoId, @RequestParam Long materiaId){
         var id = new sv.edu.udb.domain.AlumnoMateriaId(alumnoId, materiaId);
